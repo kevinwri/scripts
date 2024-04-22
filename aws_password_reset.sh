@@ -96,9 +96,6 @@ if [ $? -eq 0 ]; then
 fi
 
 # Create 1Password item
-#op item get "_AWS Temporary Password - Template" --format json | op item create --vault "Password Resets" - \
-#username="$username" title="$NewItemTitle" --generate-password=20,letters,digits,symbols > /dev/null
-
 op item create --category=login --vault="$VaultName" --title="$NewItemTitle" --url $ItemURL username="$username" --generate-password=20,letters,digits,symbols > /dev/null
 
 if [ $? -ne 0 ]; then
